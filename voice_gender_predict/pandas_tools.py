@@ -30,7 +30,7 @@ def process_missing_data(df_data):
     if df_data.isnull().values.any():
         print "数据集中的缺失数据使用0.填充"
         df_data = df_data.fillna(0.)
-    return df_data
+    return df_data.reset_index()
 
 
 def visualize_single_charecter(df_data, col1):
@@ -43,6 +43,7 @@ def visualize_single_charecter(df_data, col1):
     sns.boxplot(x='label', y=col1, data=df_data)
     # 作出拟合图线------hue 区分颜色的依据
     g2 = sns.FacetGrid(df_data, hue="label", size=6)
+    # 如果在一维的时候y轴为当前对应值的在数据集中的个数
     g2.map(sns.kdeplot, col1)
     g2.add_legend()
 
