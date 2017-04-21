@@ -56,7 +56,7 @@ def stochasticGradientDescent(x, y, theta, alpha, m, max_iter, EPS):
 
 # 批量梯度下降算法---使用训练集中的所有样本
 def batchGradientDescent(x, y, theta, alpha, m, max_iter, EPS):
-    devition = 0
+    devition = 1
     iter = 0
     while devition > EPS and iter < max_iter:
         devition = 0
@@ -67,8 +67,8 @@ def batchGradientDescent(x, y, theta, alpha, m, max_iter, EPS):
             h = theta[0] * x[i][0] + theta[1] * x[i][1]
             sigma1 = sigma1 + (y[i] - h) * x[i][0]
             sigma2 = sigma2 + (y[i] - h) * x[i][1]
-        theta[0] = theta[0] + alpha * sigma1
-        theta[1] = theta[1] + alpha * sigma2
+        theta[0] = theta[0] + alpha * sigma1/m
+        theta[1] = theta[1] + alpha * sigma2/m
         # 计算误差
         for i in range(m):
             devition = devition + (y[i] - (theta[0] * x[i][0] + theta[1] * x[i][1])) ** 2
@@ -105,7 +105,7 @@ def run_batch():
     alpha = 0.05
 
     # 随机梯度计算之后的结果
-    resultTheta, iters = stochasticGradientDescent(
+    resultTheta, iters = batchGradientDescent(
         matrix_x, matrix_y, theta, alpha, 5, max_iter, EPS
     )
 
