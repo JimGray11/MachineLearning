@@ -41,10 +41,10 @@ def stochasticGradientDescent(x, y, theta, alpha, m, max_iter, EPS):
             theta[0] = theta[0] + alpha * (y[i] - h) * x[i][0]
             theta[1] = theta[1] + alpha * (y[i] - h) * x[i][1]
 
-            iter = iter + 1
+            iter += 1
             # 计算所有样本点的误差均值
             for i in range(m):
-                deviation = deviation + (y[i] - (theta[0] * x[i][0] + theta[1] * x[i][1])) ** 2
+                deviation += (y[i] - (theta[0] * x[i][0] + theta[1] * x[i][1])) ** 2
             if deviation < EPS or iter > max_iter:
                 flag = 1
                 break
@@ -67,12 +67,12 @@ def batchGradientDescent(x, y, theta, alpha, m, max_iter, EPS):
             h = theta[0] * x[i][0] + theta[1] * x[i][1]
             sigma1 = sigma1 + (y[i] - h) * x[i][0]
             sigma2 = sigma2 + (y[i] - h) * x[i][1]
-        theta[0] = theta[0] + alpha * sigma1/m
-        theta[1] = theta[1] + alpha * sigma2/m
+        theta[0] += alpha * sigma1 / m
+        theta[1] += alpha * sigma2 / m
         # 计算误差
         for i in range(m):
-            devition = devition + (y[i] - (theta[0] * x[i][0] + theta[1] * x[i][1])) ** 2
-        iter = iter + 1
+            devition += (y[i] - (theta[0] * x[i][0] + theta[1] * x[i][1])) ** 2
+        iter += + 1
 
     return theta, iter
 

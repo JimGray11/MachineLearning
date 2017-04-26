@@ -5,7 +5,7 @@
 # @Version : v1.0
 """
   线性回归的使用批量梯度下降算法求解
-  学习资源：https://python.freelycode.com/contribution/detail/577
+  学习资源：http://machinelearningmastery.com/implement-linear-regression-stochastic-gradient-descent-scratch-python/
   正则化：http://www.cnblogs.com/jianxinzhou/p/4083921.html
   1.首先加载数据集，将字符串值转换为数字，然后将每个列统一化为0到1的之间的值.
   这里由辅助函数load_csv()和str_column_to_float()加载和初步处理数据集，
@@ -85,7 +85,7 @@ def rmse_matric(actual, predicted):
     return sqrt(mean_error)
 
 
-# 使用交叉验证来评估一个算法
+# 使用交叉验证来评估一个算法----验证误差最小的模型为所求模型
 def evaluate_algorithm(dataset, algorithm, n_folds, *args):
     folds = cross_validation_split(dataset, n_folds)
     scores = list()
@@ -159,7 +159,7 @@ if __name__ == "__main__":
     # 葡萄酒质量数据集的线性回归
     seed(1)  # seed() 方法改变随机数生成器的种子，可以在调用其他随机模块函数之前调用此函数
     # 载入准备数据
-    file_name = u"dataset/winequality-white.csv"
+    file_name = u"dataset/wine/winequality-white.csv"
     dataset = load_csv(file_name)
     for i in range(len(dataset[0])):
         str_column_to_float(dataset, i)
