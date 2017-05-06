@@ -4,7 +4,9 @@
 # @Author  : ywendeng
 # @Version :
 # -*- coding: utf-8 -*-
-
+"""
+   主要用于画树
+"""
 import matplotlib.pyplot as plt
 
 decisionNode = dict(boxstyle="sawtooth", fc="0.8")

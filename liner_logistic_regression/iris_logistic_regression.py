@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     # -----------------------------------------------
     # 画图
-    N, M = 1000,1000  # 横纵各采样多少个值
+    N, M = 1000, 1000  # 横纵各采样多少个值
     # 找到第0列的最大值和最小值
     x1_min, x1_max = x[:, 0].min(), x[:, 0].max()
     # 找到第1列的最大值和最小值
@@ -99,8 +99,9 @@ if __name__ == "__main__":
     print 'Accuracy: %.2f%%' % (100 * float(c) / float(len(result)))
     """"
     备注:meshgrid ,stack,flat的测试
-    h = np.linspace(1, 2, 5)
-    t = np.linspace(3, 4, 5)
-    h1, t1 = np.meshgrid(h, t)
-    print np.stack((h1.flat,t1.flat),axis=1)
+        h = np.linspace(1, 2, 5)
+        t = np.linspace(3, 4, 5)
+        h1, t1 = np.meshgrid(h, t)
+        print np.stack((h1.flat,t1.flat),axis=1)
+    flat:Return a copy of the array collapsed into one dimension.
     """

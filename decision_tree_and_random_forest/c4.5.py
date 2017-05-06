@@ -6,7 +6,6 @@
 from math import log
 import operator
 import treePlotter
-import matplotlib.pyplot as plt
 
 """
  决策树C4.5的实现
